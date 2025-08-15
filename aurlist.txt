@@ -1,0 +1,6 @@
+neovim-git
+neovim-git-debug
+ttf-font-awesome
+visual-studio-code-bin
+yay
+yay-debug
