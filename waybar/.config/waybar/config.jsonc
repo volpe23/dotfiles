@@ -8,12 +8,12 @@
 	"spacing": 5, // Gaps between modules (4px)
 	// Choose the order of the modules
 	"modules-left": [
-		"hyprland/workspaces",
+		"user",
 		"hyprland/submap",
 		"keyboard-state"
 	],
 	"modules-center": [
-		"user"
+		"hyprland/workspaces"
 	],
 	"modules-right": [
 		"mpd",
@@ -36,25 +36,32 @@
 		"all-outputs": true,
 		"on-click": "activate",
 		"warp-on-scroll": false,
-		"format": "<span size='larger'>{name}</span> {windows}",
-		"format-window-separator": "   |   ",
-		"window-rewrite-default": "",
+		"on-scroll-up": "hyprctl dispatch workspace e+1",
+		"on-scroll-down": "hyprctl dispatch workspace e-1",
+		"format": "{icon} {windows}",
+		"format-window-separator": " ",
+		"window-rewrite-default": " ",
 		"window-rewrite": {
-			"class<.*nvim.*>": "",
-			"class<firefox>": "",
-			"class<kitty>": "",
-			"class<code>": ""
+			"class<.*firefox.*>": " ",
+			"class<kitty>": " ",
+			"class<code>": "󰨞 ",
+			"class<slack>": " ",
+			"class<dbeaver>": " ",
+			"class<org.gnome.Nautilus>": " ",
+			"class<postman>": "\ue86b ",
+
+			"title<.*whatsapp.*>": " ",
+			"title<.*gmail.*>": "󰊫 ",
+			"title<.*facebook.*>": " ",
+			"title<.*reddit.*>": " ",
+			"title<.*ChatGPT.*>": "󰚩 ",
+			"title<.*figma.*>": " ",
+			"title<.*jira.*>": " ",
+			"title<.*github.*>": " ",
+			"title<.*gitlab.*>": " ",
+			"title<.*nvim ~.*>": " ",
+			"title<.*nvim.*>": " "
 		}
-		// "format-icons": {
-		//    "1": "",
-		//    "2": "",
-		//    "3": "",
-		//    "4": "",
-		//    "5": "",
-		//    "urgent": "",
-		//    "active": "",
-		//    "default": ""
-		//},
 	},
 	"keyboard-state": {
 		// "numlock": true,
@@ -231,13 +238,6 @@
 	"custom/power": {
 		"format": "⏻ ",
 		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
-		}
+		"on-click": "$HOME/.config/hypr/UserScripts/Wlogout.sh"
 	}
 }

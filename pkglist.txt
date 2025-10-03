@@ -17,6 +17,7 @@ firefox
 gd
 git
 glaze
+grim
 grub
 grub-btrfs
 gvim
@@ -25,6 +26,7 @@ inotify-tools
 intel-ucode
 iwd
 kitty
+libnotify
 linux
 linux-firmware
 linux-headers
@@ -49,6 +51,7 @@ pipewire-alsa
 pipewire-jack
 pipewire-pulse
 reflector
+slurp
 sqlitebrowser
 stow
 strace
@@ -61,6 +64,7 @@ unzip
 visual-studio-code-bin
 waybar
 wireplumber
+wl-clipboard
 wofi
 yay
 yay-debug

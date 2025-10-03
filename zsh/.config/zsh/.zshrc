@@ -31,6 +31,13 @@ zstyle ':completion:*' menu select
 # Use colors in completion menus
 # zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
+addToPathFront() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$1:$PATH
+    fi
+}
+
+addToPathFront $HOME/.local/scripts
 
 # Group and describe completions
 export SHELL=/usr/bin/zsh
@@ -48,6 +55,7 @@ alias ls='ls -a --color=auto'
 alias ll='ls -l'
 alias lla='ls -la'
 alias grep='grep --color=auto'
+alias dkilla='docker kill $(docker ps -q)'
 
 # Config editing aliases
 alias hyprconf='${EDITOR_PROG} ~/.config/hypr/hyprland.conf'
@@ -60,8 +68,13 @@ alias szc='source $ZDOTDIR/.zshrc && clear'
 
 # PS1='%F{white}%~ %(?.%F{green}.%F{red})%#%f ${vcs_info_msg_0_}'
 
-source $ZDOTDIR/prompt.zsh
+# source $ZDOTDIR/prompt.zsh
 source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export PATH="$HOME/nvim-linux-x86_64/bin:$PATH"
+export HYPRSHOT_DIR="~/.cache/hyprshot"
 
-source /usr/share/nvm/init-nvm.sh
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(starship init zsh)"
